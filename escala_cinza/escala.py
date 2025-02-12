@@ -2,7 +2,7 @@ import sys
 import os
 from PIL import Image
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'utils')))
-from utils import in_file, out_file
+from utils import in_file, out_file, compare_images
 
 def avg_grayscale(colored_image):
     widht, height = colored_image.size
@@ -31,3 +31,8 @@ if __name__ == "__main__":
     img = Image.open(in_file("banananelson.jpg"))    
     imgGrey = grayscale(img)
     imgGrey.save(out_file("banananelson-grey.jpg"))
+    
+    compare_images(
+        in_file("banananelson.jpg"),
+        out_file("banananelson-grey.jpg")
+    )
